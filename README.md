@@ -43,16 +43,9 @@ npm install
 
 ### Environment Configuration
 
-**Backend (`backend/.env`)**
-```env
-GOOGLE_API_KEY=your_google_gemini_api_key_here
-PORT=7860
-```
-
-**Frontend (`frontend/.env.local`)**
-```env
-NEXT_PUBLIC_API_URL=http://localhost:7860
-GOOGLE_API_KEY=your_google_gemini_api_key_here
+**Backend (`backend/`)**
+```bash
+set GOOGLE_API_KEY=your_google_gemini_api_key_here
 ```
 
 ### Running the Application
@@ -227,30 +220,6 @@ curl -X GET "http://localhost:7860/health"
 
 # Case Prediction
 curl -X POST "http://localhost:7860/predict"   -H "Content-Type: application/json"   -d '{"case":"Property dispute between siblings; inheritance issue; need legal precedents"}'
-
-# Contract Analysis  
-curl -X POST "http://localhost:7860/analyze"   -F "file=@sample_contract.pdf"
-
-# Legal Assistant Query
-curl -X POST "http://localhost:7860/assistant"   -H "Content-Type: application/json"   -d '{"query":"How do I apply for legal aid in India?"}'
-```
-
-### Frontend Development
-```bash
-cd frontend
-npm run dev          # Dev server
-npm run build        # Production build  
-npm run lint         # Lint code
-npm run type-check   # TypeScript check
-```
-
-### Backend Development
-```bash
-cd backend
-uvicorn app:app --reload      # Development server
-python -m pytest tests/       # Run tests
-python -m black .             # Format code
-python -m isort .             # Sort imports
 ```
 
 ---
@@ -265,82 +234,13 @@ python -m isort .             # Sort imports
 
 ---
 
-## 🚀 Deployment
-
-### Environment Variables
-
-```bash
-# Backend
-GOOGLE_API_KEY=prod_api_key
-PORT=7860
-ENVIRONMENT=production
-LOG_LEVEL=info
-
-# Frontend  
-NEXT_PUBLIC_API_URL=https://your-backend-domain.com
-NEXTAUTH_SECRET=your_auth_secret
-NEXT_PUBLIC_ENVIRONMENT=production
-```
-
-### Docker
-```bash
-# Build & run with Docker Compose
-docker-compose up --build
-
-# Build individual services
-docker build -t verdicto-backend ./backend
-docker build -t verdicto-frontend ./frontend
-```
-
----
-
-## 🆘 Troubleshooting
-
-**Common Issues:**
-- Empty predictions → Query too broad → Add more facts  
-- 403/429 errors → Rate limited → Use retry logic  
-- OCR failures → Poor PDF → Use higher resolution  
-- Missing API responses → Check `.env` vars + internet connection  
-
-**Performance Tips:**
-- Use `fetch_cases_parallel` for faster retrieval  
-- Persist FAISS index for repeated queries  
-- Enable caching for common legal queries  
-- Monitor rate limits + backoff  
-
----
-
-## 📈 Roadmap
-
-**Phase 1 (Current)**  
-- ✅ Core AI features  
-- ✅ Indian law integration  
-- ✅ Process-aware RAG  
-
-**Phase 2 (Next 6 months)**  
-- 🔄 Multi-modal AI (voice + image)  
-- 🔄 Mobile app  
-- 🔄 Advanced document templates  
-- 🔄 Real-time collaboration  
-
-**Phase 3 (12+ months)**  
-- 🔄 Blockchain smart contracts  
-- 🔄 AR/VR legal training  
-- 🔄 International expansion  
-- 🔄 API marketplace  
-
----
 
 ## 📄 License & Legal
 
 **Disclaimer:** This AI system provides general information only and does not constitute legal advice. Users should consult qualified lawyers for specific legal matters.  
-
-**License:** MIT License — see LICENSE file  
 
 **Data Sources:** All legal content sourced from publicly available government portals and legal databases with proper attribution.  
 
 ---
 
 **Built with ❤️ for the Indian legal community**  
-
-👉 [GitHub Repository](https://github.com/your-username/verdicto) | 📧 [support@verdicto.ai](mailto:support@verdicto.ai)
