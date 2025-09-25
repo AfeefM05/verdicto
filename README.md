@@ -2,6 +2,8 @@
 
 <p align="center"><strong>
 AI-powered legal platform with case predictions, contract analysis, RAG assistant, document generation, and automated sorting — purpose-built for Indian law.
+Prototype link : https://verdicto-agent.vercel.app
+Demo video link : https://youtu.be/6fjTk8o5_zc
 </strong></p>
 
 <p align="center">
